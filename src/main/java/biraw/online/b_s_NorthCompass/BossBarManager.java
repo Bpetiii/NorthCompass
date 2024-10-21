@@ -1,6 +1,8 @@
 package biraw.online.b_s_NorthCompass;
 
+import net.kyori.adventure.chat.ChatType;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
@@ -19,7 +21,7 @@ public class BossBarManager {
         if (playerBossBars.containsKey(player)) {
             return;
         }
-        BossBar bossBar = Bukkit.createBossBar(title, BarColor.PURPLE, BarStyle.SEGMENTED_20);
+        BossBar bossBar = Bukkit.createBossBar(title, BarColor.WHITE, BarStyle.SEGMENTED_20);
         bossBar.setProgress(0);
         bossBar.addPlayer(player);
         playerBossBars.put(player, bossBar);
@@ -77,6 +79,9 @@ public class BossBarManager {
         if (res.charAt(13)=='-') modifiedRes.setCharAt(13, '✕');
         if (res.charAt(15)=='-') modifiedRes.setCharAt(15, '✕');
         res = modifiedRes.toString();
+
+        //Add color to the compass
+        res = res.replace("N", ChatColor.RED + "N" + ChatColor.RESET);
 
         return res;
     }

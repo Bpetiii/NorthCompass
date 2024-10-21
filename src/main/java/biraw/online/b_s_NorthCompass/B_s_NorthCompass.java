@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public final class B_s_NorthCompass extends JavaPlugin {
 
-    private static ArrayList<Integer> tasks;
+    private static ArrayList<Integer> tasks = new ArrayList<>();
     private static JavaPlugin plugin;
     private static BossBarManager barManager;
 
